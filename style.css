@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #16222f;
+  color: #39ff14;
+}
+
+.kopf {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+.escape {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.zahlen ul {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+
+.box {
+  border: 1px solid red;
+  flex: 1 1 0px;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  gap: 20px;
+
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.box p {
+  text-align: center;
+}
+
+.aufgaben {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20 px;
+  min-width: 250px;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+
+.sicherheitsschloss {
+  width: 60px;
+  height: auto;
+}
+
+.task-input {
+  background-color: #5ad744;
+  color: #16222f;
+  width: 100%;
+}
+
+.task-button {
+  background-color: #5ad744;
+}
+.taskeins .hinweis {
+  border: 1px solid #5ad744;
+  padding: 10px;
+}
+
+.taskeins,
+.taskzwei {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  width: 70%;
+  height: auto;
+}

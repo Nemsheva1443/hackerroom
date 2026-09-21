@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <header class="kopf">
+      <div class="escape">
+        <h1>ESCAPE THE HACKER ROOM</h1>
+        <p>Löse 3 Sicherheitsaufgaben, um das System zu beschreiben</p>
+      </div>
+
+      <div class="zahlen">
+        <ul>
+          <div>
+            <div class="ersteZahl">
+              <span>🟢</span>
+              <span class="line">⟶</span>
+            </div>
+            <div class="code">Code</div>
+          </div>
+
+          <div>
+            <div class="ersteZahl">
+              <span>🔵</span>
+              <span class="line">⟶</span>
+            </div>
+            <div class="code">Password</div>
+          </div>
+
+          <div>
+            <div class="ersteZahl">
+              <span>🔵</span>
+            </div>
+            <div class="code">Code</div>
+          </div>
+        </ul>
+      </div>
+    </header>
+
+
+    <main>
+
+
+      <section class="aufgaben">
+
+      
+        <section class="box">
+
+        
+            <h2>Aufgabe 1</h2>
+          <p>Zahlungscode beachten</p>
+
+          
+          
+
+          <p id="versuche-zaeler">Versuche: 5</p>
+          <div class="taskeins">
+            <input id="code-eingabe" class="task-input" type="text" placeholder="Zahl eingeben (1-20)" />
+            <button id="pruefen-button"   class="task-button">Prüfen</button>
+            <div class="hinweis">
+              <p id="hinweis-aufgabe">Hinweis: der Code ist zwische 1 und 20</p>
+              
+              
+              </div>
+          </div>
+        </section>
+
+
+        <section class="box">
+          
+
+            <h2>Aufgabe 2</h2>
+          <p>Passwortprüfung</p>
+          <img class="sicherheitsschloss" src="./img/scloss1.jpg" alt="Sicherheitsschloss" />
+          <p>Diese Aufgabe ist noch gesperrt. <br> Löse zuerst Aufgabe 1!</p>
+      <div class="taskzwei">
+ <input id="geheim-wort"   class="task-input" type="text" placeholder="Passwort eingeben" />
+            <button id="geheimwort-button" class="task-button">Prüfen</button>
+
+            <div id="hinweispassw">
+              <p id="passw-task">Hinweis: Bitte gib den Passwort ein!</p>
+              
+              
+              </div>
+      </div>
+            
+          
+          
+        </section>
+
+
+
+
+        <section class="box">
+          
+
+            <h2>Aufgabe 3</h2>
+          <p>Sicherheitssequenz</p>
+          <img class="sicherheitsschloss" src="./img/scloss1.jpg" alt="Sicherheitsschloss" />
+          <p>Diese Aufgabe ist noch gesperrt. <br> Löse zuerst Aufgabe 2!</p>
+      <div  class="taskzwei">
+ <input id = "sequenz" class="task-input" type="text" placeholder="Zahl eingeben" />
+            <button id="sicherheit-check" class="task-button">Prüfen</button>
+      </div>
+
+      <div>
+              <p id="check" class="drittetask">Hinweis: Bitte gib die ganze Zahl zwischen 1und 10!</p>
+              
+              
+              </div>
+            
+          
+          
+        </section>
+        
+      
+      
+    
+    </main>
+
+
+    
+  </body>
+</html>
