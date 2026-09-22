@@ -1,77 +1,114 @@
-const geheimer_zahl = 10;
-
+const geheimer_zahl = Math.floor(Math.random() * 20) + 1;
 let verbleibende_versuche = 5;
 
+let task_eins_geschafft = false;
+let task_zwei_geschafft = false;
+
 const eingabefeld = document.querySelector("#code-eingabe");
-
 const pruefenbtn = document.querySelector("#pruefen-button");
-
 const versuche_anzeige = document.querySelector("#versuche-zaeler");
-
 const hinweis_text = document.querySelector("#hinweis-aufgabe");
 
-pruefenbtn.addEventListener("click", () => {
-  const tipp = Number(eingabefeld.value);
+const aufgabe2 = document.querySelector("#aufgabe2");
+const aufgabe3 = document.querySelector("#aufgabe3");
+const gewonnen = document.querySelector("#gewonnen");
 
-  verbleibende_versuche = verbleibende_versuche - 1;
+aufgabe2.hidden = true;
+aufgabe3.hidden = true;
 
-  versuche_anzeige.textContent = "Versuche:" + verbleibende_versuche;
+function aufgabeEins() {
+  pruefenbtn.addEventListener("click", () => {
+    const eingabe = Number(eingabefeld.value);
 
-  if (tipp === geheimer_zahl) {
-    hinweis_text.textContent =
-      "Aufgabe 1 ist erfolgreich abgeschlossen! Die Aufgabe 2 ist freigeschaltet!";
-  } else if (verbleibende_versuche === 0) {
-    hinweis_text.textContent = "Keine Versuche mehr! Das Spiel ist vorbei!";
-  } else {
-    if (tipp > geheimer_zahl) {
-      hinweis_text.textContent = "Die Geheimahl ist kleiner";
-    } else if (tipp < geheimer_zahl) {
-      hinweis_text.textContent = "Die Geheimahl ist größer";
+    if (verbleibende_versuche === 0) {
+      hinweis_text.textContent = "Keine Versuche mehr! Das Spiel ist vorbei!";
+    } else {
+      if (eingabefeld.value === "") {
+        hinweis_text.textContent = "Ungültige Eingabe!";
+      } else {
+        if (eingabe === geheimer_zahl) {
+          task_eins_geschafft = true;
+          hinweis_text.textContent =
+            "✅ Aufgabe 1 erfolgreich abgeschlossen! Aufgabe 2 ist freigeschaltet!";
+          aufgabe2.hidden = false;
+        } else {
+          verbleibende_versuche = verbleibende_versuche - 1;
+
+          versuche_anzeige.textContent = "Versuche: " + verbleibende_versuche;
+
+          if (verbleibende_versuche === 0) {
+            hinweis_text.textContent =
+              "Keine Versuche mehr! Das Spiel ist vorbei!";
+          } else {
+            if (eingabe > geheimer_zahl) {
+              hinweis_text.textContent = "Die Geheimzahl ist kleiner.";
+            } else {
+              hinweis_text.textContent = "Die Geheimzahl ist größer.";
+            }
+          }
+        }
+      }
     }
-  }
-});
+  });
+}
+
+aufgabeEins();
 
 const richtig_passw = "hackerroom";
-
 const geheim_wort = document.querySelector("#geheim-wort");
 const geheimwort_btn = document.querySelector("#geheimwort-button");
-const hinweispassw = document.querySelector("#hinweispssw");
 const passw_task = document.querySelector("#passw-task");
 
-geheimwort_btn.addEventListener("click", () => {
-  const eingabe = geheim_wort.value;
+function aufgabeZwei() {
+  geheimwort_btn.addEventListener("click", () => {
+    if (task_eins_geschafft === true) {
+      const eingabe = geheim_wort.value;
 
-  if (eingabe === "") {
-    passw_task.textContent = "Ungültig! Bitte geben Sie eine Zahl";
-  } else if (eingabe.length < 8) {
-    passw_task.textContent = "Das Password muss mind. 8 Zeichen sein";
-  } else if (eingabe !== richtig_passw) {
-    passw_task.textContent = "Der Password ist falsch";
-  } else if (eingabe === richtig_passw) {
-    passw_task.textContent = "Die Aufgabe erfolgreich abgeschlossen!";
-  }
-});
+      if (eingabe === "") {
+        passw_task.textContent = "Ungültig! Bitte geben Sie das Passwort ein.";
+      } else if (eingabe.length < 8) {
+        passw_task.textContent = "Das Passwort muss mind. 8 Zeichen sein";
+      } else if (eingabe !== richtig_passw) {
+        passw_task.textContent = "Das Passwort ist falsch";
+      } else {
+        task_zwei_geschafft = true;
+        passw_task.textContent =
+          "✅ Aufgabe 2 erfolgreich abgeschlossen! Aufgabe 3 ist freigeschaltet!";
+        aufgabe3.hidden = false;
+      }
+    }
+  });
+}
+
+aufgabeZwei();
 
 const input_sequenz = document.querySelector("#sequenz");
 const btn_sequenz = document.querySelector("#sicherheit-check");
-const output_sequenz = document.querySelector("check");
+const output_sequenz = document.querySelector("#check");
 
-btn_sequenz.addEventListener("click", () => {
-  const eintippen = input_sequenz.value;
+function aufgabeDrei() {
+  btn_sequenz.addEventListener("click", () => {
+    if (task_zwei_geschafft === true) {
+      const eintippen = input_sequenz.value;
+      const eintragen = Number(eintippen);
 
-  if (eintippen === "") {
-    output_sequenz.textContent = "Ungültige Eingabe!";
-  } else {
-    const eintragen = Number(eintippen);
-  }
-  if (eintragen < 1 || eintragen > 10) {
-    output_sequenz.textContent = "Die Zahl liegt zwischen 1 und 10";
-  } else {
-    let schluss = "";
-    for (let i = 1; i <= eintragen; i++) {
-      schluss = schluss + i + "";
+      if (eintippen === "") {
+        output_sequenz.textContent = "Ungültige Eingabe!";
+      } else if (eintragen < 1 || eintragen > 10) {
+        output_sequenz.textContent = "Die Zahl liegt zwischen 1 und 10";
+      } else {
+        let schluss = "";
+
+        for (let i = 1; i <= eintragen; i++) {
+          schluss = schluss + i;
+        }
+
+        output_sequenz.textContent = schluss + " ✅";
+        gewonnen.hidden = false;
+        document.body.style.backgroundColor = "#0e3619";
+      }
     }
+  });
+}
 
-    output_sequenz.textContent = schluss;
-  }
-});
+aufgabeDrei();
