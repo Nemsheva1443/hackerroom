@@ -6,7 +6,7 @@
 
 body {
   background-color: #16222f;
-  color: #39ff14;
+  color: #1437ff;
 }
 
 .kopf {
@@ -82,19 +82,6 @@ body {
   padding: 10px;
 }
 
-#passw-task {
-  border: 1px solid #5ad744;
-  padding: 10px;
-}
-
-#check {
-  border: 1px solid #5ad744;
-  padding: 10px;
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
-}
-
 .taskeins,
 .taskzwei {
   display: flex;
@@ -109,7 +96,7 @@ body {
   text-align: center;
   margin-top: 40px;
   padding: 30px;
-  border: 2px solid #743517;
+  border: 2px solid #0e2a09;
 }
 
 #gewonnen h1 {

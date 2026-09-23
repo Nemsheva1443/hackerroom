@@ -13,9 +13,6 @@ const aufgabe2 = document.querySelector("#aufgabe2");
 const aufgabe3 = document.querySelector("#aufgabe3");
 const gewonnen = document.querySelector("#gewonnen");
 
-aufgabe2.hidden = true;
-aufgabe3.hidden = true;
-
 function aufgabeEins() {
   pruefenbtn.addEventListener("click", () => {
     const eingabe = Number(eingabefeld.value);
@@ -31,6 +28,7 @@ function aufgabeEins() {
           hinweis_text.textContent =
             "✅ Aufgabe 1 erfolgreich abgeschlossen! Aufgabe 2 ist freigeschaltet!";
           aufgabe2.hidden = false;
+          schloss2.src = "./img/schloss2.png";
         } else {
           verbleibende_versuche = verbleibende_versuche - 1;
 
@@ -59,6 +57,8 @@ const geheim_wort = document.querySelector("#geheim-wort");
 const geheimwort_btn = document.querySelector("#geheimwort-button");
 const passw_task = document.querySelector("#passw-task");
 
+const schloss2 = document.querySelector("#schloss2");
+
 function aufgabeZwei() {
   geheimwort_btn.addEventListener("click", () => {
     if (task_eins_geschafft === true) {
@@ -75,6 +75,7 @@ function aufgabeZwei() {
         passw_task.textContent =
           "✅ Aufgabe 2 erfolgreich abgeschlossen! Aufgabe 3 ist freigeschaltet!";
         aufgabe3.hidden = false;
+        schloss3.src = "./img/schloss2.png";
       }
     }
   });
@@ -85,6 +86,7 @@ aufgabeZwei();
 const input_sequenz = document.querySelector("#sequenz");
 const btn_sequenz = document.querySelector("#sicherheit-check");
 const output_sequenz = document.querySelector("#check");
+const schloss3 = document.querySelector("#schloss3");
 
 function aufgabeDrei() {
   btn_sequenz.addEventListener("click", () => {
@@ -105,7 +107,7 @@ function aufgabeDrei() {
 
         output_sequenz.textContent = schluss + " ✅";
         gewonnen.hidden = false;
-        document.body.style.backgroundColor = "#0e3619";
+        document.body.style.backgroundColor = "#212f3f";
       }
     }
   });
